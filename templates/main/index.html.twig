@@ -9,7 +9,7 @@
 {% block body %}
     <div class="container">
         <div class="d-flex flex-row">
-            <div class="input-group mt-4">
+            <div class="input-group shadow mt-4">
                 <input type="text" class="form-control rounded-pill" onkeyup="showSuggestions(this.value)">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <ul class="list-group" id="suggestions">
+        <ul class="list-group shadow" id="suggestions">
         </ul>
     </div>
 {% endblock %}
