@@ -8,8 +8,8 @@
 
 {% block body %}
     <div class="container">
-        <div class="d-flex flex-row">
-            <div class="input-group shadow mt-4">
+        <div class="row justify-content-center">
+            <!--div class="input-group shadow mt-4">
                 <input type="text" class="form-control rounded-pill" onkeyup="showSuggestions(this.value)">
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit">
@@ -20,9 +20,19 @@
                         </svg>
                     </button>
                 </div>
+            </div-->
+            {{ form_start(form) }}
+            <div class="input-group shadow mt-4">
+                {{ form_row(form.city, {'attr': {'class': 'form-control', 'onkeyup': 'showSuggestions(this.value)'}}) }}
+                <div class="input-group-append">
+                    {{ form_row(form.search, {'attr': {'class': 'btn btn-primary'}}) }}
+                </div>
             </div>
+            {{ form_end(form) }}
         </div>
-        <ul class="list-group shadow" id="suggestions">
-        </ul>
+        <div class="row justify-content-center">
+            <ul class="list-group shadow" id="suggestions">
+            </ul>
+        </div>
     </div>
 {% endblock %}

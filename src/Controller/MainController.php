@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Repository\CityRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,7 +16,13 @@ class MainController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('main/index.html.twig');
+        $form = $this->createFormBuilder()
+            ->add('city', SearchType::class, ['label' => false])
+            ->add('search', SubmitType::class, ['label' => 'Go!'])
+            ->getForm();
+        return $this->render('main/index.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**
