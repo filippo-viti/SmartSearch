@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ city.name }}{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <table class="table mt-4">
+            <thead class="thead-light">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Country</th>
+                <th scope="col">Sub country</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ city.geonameid }}</td>
+                <td>{{ city.name }}</td>
+                <td>{{ city.country }}</td>
+                <td>{{ city.subcountry }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
