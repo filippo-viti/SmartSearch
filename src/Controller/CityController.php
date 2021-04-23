@@ -25,14 +25,14 @@ class CityController extends AbstractController
     }
 
     /**
-     * @Route("/city/search/{name}", name="city_search")
+     * @Route("/city/autocomplete/{name}", name="city_search")
      *
      * @param CityRepository $repository
      * @param string $name
      *
      * @return Response
      */
-    public function search(CityRepository $repository, string $name): Response
+    public function suggestions(CityRepository $repository, string $name): Response
     {
         $data = $repository->findByNameAutocomplete($name);
         return $this->json($data);

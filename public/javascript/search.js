@@ -16,6 +16,6 @@ function showSuggestions(keyword) {
             document.getElementById("suggestions").innerHTML = list;
         }
     }
-    xmlhttp.open("GET", "/city/search/" + keyword, true);
+    xmlhttp.open("GET", "/city/autocomplete/" + keyword, true);
     xmlhttp.send();
 }
