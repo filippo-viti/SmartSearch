@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search results{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% if cities %}
+            <div class="row">
+                <h3>Showing results for "{{ query }}"</h3>
+            </div>
+            {% for city in cities %}
+                <div class="row">
+                    <a href="{{ path('city', {geonameid: city.geonameid}) }}">
+                        {{ city.name }}, {{ city.subcountry }}, {{ city.country }}
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>No results</h3>
+        {% endif %}
+    </div>
+{% endblock %}
